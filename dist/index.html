@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/shop-Dl_IwxpP.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel's Solutions</title>
+    <script type="module" crossorigin src="/assets/index-B8fX4Yww.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CcoKAWcW.css">
+  </head>
+  <body>
+    <main id="app" class="flex flex-col min-h-screen">
+      <header class="border-b-4 border-b-gray-800 py-3">
+        <div class="container mx-auto">
+          <div class="flex justify-between">
+            <div class="">
+              <h1 class="font-bold text-2xl">Daniel's Solutions</h1>
+              <p class="text-neutral-500">E-Commerce</p>
+            </div>
+            <div class="flex gap-3 items-center">
+              <button
+                type="button"
+                class="text-gray-700 border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+
+                <span class="sr-only">Icon description</span>
+              </button>
+
+              <button
+                type="button"
+                id="openDrawer"
+                class="animate__animated relative text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                data-drawer-target="cart-drawer"
+                data-drawer-show="cart-drawer"
+                data-drawer-placement="right"
+                aria-controls="cart-drawer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+
+                <span class="sr-only">Icon description</span>
+
+                <span
+                  class="absolute bg-red-600 w-5 h-5 pt-[3px] pr-[0.5px] top-0 right-0 flex justify-center text-center  translate-x-1/2 -translate-y-1/2 rounded-full text-xs"
+                  id="cartItemCount"
+                >
+                  0
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- drawer component -->
+      <section
+        id="cart-drawer"
+        class="fixed top-0 right-0 z-40 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+        tabindex="-1"
+        aria-labelledby="drawer-right-label"
+      >
+        <div class="flex flex-col min-h-screen gap-3 p-4">
+          <div class="cart-header">
+            <h5
+              id="drawer-right-label"
+              class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"
+            >
+              <svg
+                class="w-4 h-4 me-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              Your Cart ( <span id="cartCount">0</span> )
+            </h5>
+
+            <button
+              type="button"
+              data-drawer-hide="cart-drawer"
+              aria-controls="drawer-right-example"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+            >
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span class="sr-only">Close menu</span>
+            </button>
+          </div>
+
+          <div
+            class="flex flex-col overflow-scroll overflow-x-hidden overflow-y-auto flex-grow h-[300px] gap-5"
+            id="cartItemGroup"
+          >
+            <div class="hidden last:flex justify-center items-center h-full">
+              <div class="text-center">
+                <img
+                  src="/assets/Add%20to%20Cart-cuate-D3bPYd4W.svg"
+                  alt=""
+                  class="w-full"
+                />
+                <p>There is no item</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-footer flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+              <p>Total</p>
+              <p id="cartTotal">0</p>
+            </div>
+            <button
+              class="relative text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 flex justify-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Order
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="category-section" class="py-3">
+        <div class="container mx-auto">
+          <div class="">
+            <h4 class="mb-2">Product Categories</h4>
+            <div id="categoryGroup" class="flex gap-2 overflow-x-scroll">
+              <button
+                class="cat-btn active duration-150 active:scale-90 border-2 text-nowrap border-gray-700 px-4 py-1 rounded"
+              >
+                All
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product-section">
+        <div class="container mx-auto">
+          <div class="">
+            <div
+              id="productGroup"
+              class="grid gap-5 xl:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-gray-700 py-3 mt-auto">
+        <div class="container mx-auto">
+          <div class="flex justify-between items-center">
+            <p class="text-white">
+              Copyright © 2024 <a href="#" class="underline">Hset Paing</a>
+            </p>
+            <button
+              type="button"
+              class="text-white border border-white hover:bg-white hover:text-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 18.75 7.5-7.5 7.5 7.5"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 12.75 7.5-7.5 7.5 7.5"
+                />
+              </svg>
+
+              <span class="sr-only">Icon description</span>
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <template id="categoryTemplate">
+        <button
+          class="cat-btn duration-150 active:scale-90 border-2 text-nowrap border-gray-700 px-4 py-1 rounded"
+        >
+          Electronics
+        </button>
+      </template>
+
+      <template id="productTemplate">
+        <div class="product-card col-span-1">
+          <img
+            class="product-img h-[120px] ms-5 -mb-[50px]"
+            src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+            alt=""
+          />
+          <div
+            class="product-info w-full rounded-md p-5 border-2 border-gray-700"
+          >
+            <p class="product-title line-clamp-1 font-bold mb-1 mt-[35px]">
+              Mens Cotton Jacket
+            </p>
+            <p class="product-description line-clamp-3 text-sm mb-4">
+              Great outerwear jackets for Spring/Autumn/Winter, suitable for
+              many occasions, such as working, hiking, camping, mountain/rock
+              climbing, cycling, traveling or other outdoors. Good gift choice
+              for you or your family member. A warm hearted love to Father,
+              husband or son in this thanksgiving or Christmas Day.
+            </p>
+
+            <div class="flex justify-between items-center mb-2">
+              <div class="product-star flex gap-1"></div>
+              <p class="product-rating">( 4.2 / 500 )</p>
+            </div>
+            <hr class="border-2 border-gray-400 mb-2" />
+            <p class="font-bold text-xl mb-5">
+              $ <span class="product-price">55.99</span>
+            </p>
+            <button
+              class="product-add-cart-btn duration-200 active:scale-95 disabled:scale-100 font-semibold text-[17px] rounded-lg border-2 border-gray-700 hover:text-white hover:bg-gray-700 disabled:bg-gray-700 disabled:text-white w-full p-2"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </template>
+
+      <template id="cartItemTemplate">
+        <div class="cart-item group">
+          <img
+            class="cart-item-img h-20 ms-3 -mb-[25px] relative z-10"
+            src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+            alt=""
+          />
+
+          <div class="cart-info group relative border-2 p-4 rounded-lg">
+            <button
+              class="cart-item-remove absolute top-4 right-4 active:scale-75 opacity-0 pointer-events-none group-hover:opacity-100 duration-300 group-hover:pointer-events-auto"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5 stroke-red-600 pointer-events-none"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                />
+              </svg>
+            </button>
+
+            <p
+              class="cart-item-title line-clamp-1 font-semibold mb-1 mt-[28px]"
+            >
+              Mens Cotton Jacket
+            </p>
+            <div class="flex justify-between mt-2">
+              <p>
+                $ <span class="cart-item-cost">55.99</span>
+                <span class="cart-item-price hidden">55.99</span>
+              </p>
+
+              <div class="flex">
+                <button
+                  class="cart-q-sub -translate-x-10 group-hover:-translate-x-0 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto active:scale-75 duration-300 mr-1 print:hidden"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6 pointer-events-none"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </button>
+
+                <span class="cart-quantity relative inline-block">0</span>
+
+                <button
+                  class="cart-q-add translate-x-10 group-hover:translate-x-0 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto active:scale-75 duration-300 ml-1 print:hidden"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6 pointer-events-none"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </main>
+  </body>
+</html>
